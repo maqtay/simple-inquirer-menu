@@ -1,6 +1,6 @@
 # Simple Inquirer Menu
 
-Javascript'in <a href="https://www.npmjs.com/package/inquirer">Inquirer</a> kütüphanesi kullanılarak yazılmış basit bir konsol menü uygulaması. 
+Javascript'in <a href="https://www.npmjs.com/package/inquirer" target="_blank">Inquirer</a> kütüphanesi kullanılarak yazılmış basit bir konsol menü uygulaması. 
 1. Adım: JSON api'den veri çekiyor. 
 2. Adım: Zamanı ekrana basıyor. 
 3. Adım:  Menüden çıkış yapıyor.
