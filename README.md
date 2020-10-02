@@ -9,6 +9,6 @@ As an example it pulls a json data. It is moved by using up and down keys in the
 
 `npm install`
 
-## Usag
+## Usage
 
 `node index.js`
