@@ -58,10 +58,11 @@ function writeStatus (config) {
 }
 
 async function pullJson(config) {
+    var timeout = loadingAnim(); 
     fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response => response.json())
-    .then(async (json) => {
-        await loadingAnim();
+    .then(json => {
+        clearInterval(timeout);
         console.log(json);
         config.pull_json.status = true;
         config.pull_json.err = null;
@@ -69,6 +70,7 @@ async function pullJson(config) {
         dispMenu();
     })
     .catch(error => {
+        clearInterval(timeout);
         config.pull_json.status = false;
         config.pull_json.err = error.toString();
         writeStatus(config);
@@ -86,19 +88,11 @@ function showDate(config) {
 
 function loadingAnim() {
     process.stdout.write("  Installing");
-    var loader = (() => {
-        var P = ["\\", "|", "/", "-"], x = 0;
-        return setInterval(() => {
-          process.stdout.write("\r" + P[x++]);
-          x &= 3;
-        }, 270);
-    })();
-    return new Promise(resolve => {
-      setTimeout(() => {
-        clearInterval(loader);
-        resolve(true);
-    }, 1500);
-    });
+    var P = ["\\", "|", "/", "-"], x = 0;
+    return setInterval(() => {
+      process.stdout.write("\r" + P[x++]);
+      x &= 3;
+    }, 270);
 }
 
 dispMenu();
